@@ -234,6 +234,97 @@ Used to generate a CSS artifact from a given `src` sass file.
   </tbody>
 </table>
 
+
+<a name="reference-multi_sass_binary"></a>
+## multi\_sass_binary
+
+```python
+multi_sass_binary(name, srcs, deps=[], output_style="compressed")
+```
+
+Used to generate a multiple CSS artifacts from a list of `srcs` provided as sass files.
+
+<table class="table table-condensed table-bordered table-implicit">
+  <colgroup>
+    <col class="col-param" />
+    <col class="param-description" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2">Generated Output Targets</th>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>path/to/input.css</code></td>
+      <td>
+        <p>The generated CSS artifact containing all the styles. One is generated for each file in srcs.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>path/to/input.css.map</code></td>
+      <td>
+        <p>
+          <a href="http://thesassway.com/intermediate/using-source-maps-with-sass">source map</a>
+          that can be used to optionally debug the generated CSS in a browser. One is generated for each file in srcs.
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="table table-condensed table-bordered table-params">
+  <colgroup>
+    <col class="col-param" />
+    <col class="param-description" />
+  </colgroup>
+  <thead>
+    <tr>
+      <th colspan="2">Attributes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>name</code></td>
+      <td>
+        <code>Name, required</code>
+        <p>A unique name for this rule.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>srcs</code></td>
+      <td>
+        <code>List of source files, required</code>
+        <p>The list of Sass source files that will each be compiled to CSS.</p>
+        <p>
+        <code>multi_sass_binary</code> assumes a 1:1 mapping of each file in src to it's output CSS file (and source map).
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>deps</code></td>
+      <td>
+        <code>list of labels, optional</code>
+        <p></p>
+        <p>
+        Each target should be defined using a <code>filegroup</code> rule and should only include "_" prefixed files that are referenced via <code>@import</code> in the target's source file.
+        </p>
+      </td>
+    </tr>
+    <tr>
+      <td><code>output_style</code></td>
+      <td>
+        <code>string; optional</code>
+        <p>Defaults to <code>compressed</code>.</p>
+        <p>
+        Can be set to <a href="http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style">one of the following</a> output styles defined by <code>sassc</code>.
+        </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
 <a name="reference-sass_library"></a>
 ## sass_library
 

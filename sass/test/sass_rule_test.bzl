@@ -45,6 +45,22 @@ def _sass_binary_test(package):
         rule = package + "/nested:nested",
     )
 
+
+
+def _multi_sass_binary_test(package):
+    rule_test(
+        name = "multi_sass_binary_rule_test",
+        generates = [
+            "main.css",
+            "main.css.map",
+            "nested/deep/main.css",
+            "nested/deep/main.css.map",
+        ],
+        rule = package + "/glob_sass",
+    )
+
+
 def sass_rule_test(package):
     """Issue simple tests on sass rules."""
     _sass_binary_test(package)
+    _multi_sass_binary_test(package)

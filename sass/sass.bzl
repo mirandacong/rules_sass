@@ -68,6 +68,42 @@ def _sass_binary_impl(ctx):
 
     return DefaultInfo(files=depset([outfile, outfile_map]))
 
+
+def _multi_sass_binary_impl(ctx):
+    sassc = ctx.file._sassc
+    options = [
+        "--style={0}".format(ctx.attr.output_style),
+        "--sourcemap",
+    ]
+
+    transitive_sources = collect_transitive_sources(ctx)
+
+    for src in transitive_sources:
+        options += ["--load-path", src.path[:-len(src.basename)]]
+
+    outputs = []
+
+    for src in ctx.files.srcs:
+        extension = src.extension
+        outfile_path = src.basename[:-len(extension)] + "css"
+
+        outfile = ctx.actions.declare_file(outfile_path, sibling=src)
+        outputs.append(outfile)
+
+        outfile_map = ctx.actions.declare_file(outfile_path + ".map", sibling=src)
+        outputs.append(outfile_map)
+
+        ctx.actions.run(
+            inputs = [sassc, src] + list(transitive_sources),
+            executable = sassc,
+            arguments = options + [src.path, outfile.path],
+            mnemonic = "SassCompiler",
+            outputs = [outfile, outfile_map],
+        )
+
+    return DefaultInfo(files=depset(outputs))
+
+
 sass_deps_attr = attr.label_list(
     providers = ["transitive_sass_files"],
     allow_files = False,
@@ -104,6 +140,25 @@ sass_binary = rule(
     },
     implementation = _sass_binary_impl,
 )
+
+multi_sass_binary = rule(
+    attrs = {
+        "srcs": attr.label_list(
+            allow_files = SASS_FILETYPES,
+            mandatory = True
+        ),
+        "output_style": attr.string(default = "compressed"),
+        "deps": sass_deps_attr,
+        "_sassc": attr.label(
+            default = Label("//sass:sassc"),
+            executable = True,
+            cfg = "host",
+            single_file = True,
+        ),
+    },
+    implementation = _multi_sass_binary_impl,
+)
+
 
 LIBSASS_BUILD_FILE = """
 package(default_visibility = ["@sassc//:__pkg__"])
