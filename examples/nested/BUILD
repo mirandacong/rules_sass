@@ -6,7 +6,6 @@ load("//sass:sass.bzl", "sass_binary")
 sass_binary(
     name = "nested",
     src = "dir/main.scss",
-    out = "dir/main.css",
     deps = [
         "//examples/shared:colors",
         "//examples/shared:fonts",
