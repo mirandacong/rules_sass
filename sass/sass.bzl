@@ -23,19 +23,11 @@ dart-sass library, based on https://github.com/sass/dart-sass.
 This is the canonical compiler under active development by the Sass team.
 This compiler is convenient for frontend developers since it's released
 as JavaScript and can run natively in NodeJS without being locally built.
-However, it is the slowest option. If you have a substantial Sass
-codebase, consider the two other options for this attribute:
-
-1. `compiler = "@sassc"` uses the libsass compiler written in C++.
-   As of 2018, this is the most commonly used compiler.
-   It requires your Bazel setup has a working C++ compilation toolchain.
-
-   NOTE: future releases of rules_sass may remove this option, if it
-   becomes obsolete or if the maintenance burden is too high.
-
-2. Dart Sass runs the new compiler implementation natively in the Dart
-   VM. This option requires a change to the Dart Bazel rules which is
-   not yet available as of May 2018.
+While the compiler can be configured, there are no other implementations
+explicitly supported at this time. In the future, there will be an option
+to run Dart Sass natively in the Dart VM. This option depends on the Bazel
+rules for Dart, which are currently not actively maintained (see
+https://github.com/dart-lang/rules_dart).
 """
 
 SassInfo = provider(
@@ -65,14 +57,9 @@ def _run_sass(ctx, input, css_output, map_output):
   # sass <flags> <input_filename> <output_filename>
   args = ctx.actions.args()
 
-  # Flags (see https://github.com/sass/node-sass#options)
-  # Note, the command line is compatible with Dart sass.
+  # Flags (see https://github.com/sass/dart-sass/blob/master/lib/src/executable/options.dart)
   args.add(["--style", ctx.attr.output_style], join_with="=")
-  # FIXME: sassc requires --sourcemap to produce the .map file, otherwise this rule fails
-  # However dart sass only accepts --source-map (Extra hyphen)
-  # https://github.com/sass/dart-sass/commit/234aa12e081c7cc873549fee1c5f37a12564d1b1#r28862590
-  # so using compiler="@sassc" is currently broken.
-  #args.add(["--sourcemap"])
+  args.add(["--source-map"])
 
   # Sources for compilation may exist in the source tree, in bazel-bin, or bazel-genfiles.
   for prefix in [".", ctx.var['BINDIR'], ctx.var['GENDIR']]:

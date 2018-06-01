@@ -137,7 +137,7 @@ INFO: Elapsed time: 1.911s, Critical Path: 0.01s
 ### sass_binary
 
 ```py
-sass_binary(name, src, deps=[], output_style="compressed", include_paths=[], output_dir=".",output_name=<src_filename.css>)
+sass_binary(name, src, deps=[], output_style="compressed", include_paths=[], output_dir=".", output_name=<src_filename.css>)
 ```
 
 `sass_binary` compiles a single CSS output from a single Sass entry-point file. The entry-point file
@@ -148,9 +148,9 @@ may have dependencies (`sass_library` rules, see below).
 | Label            | Description                                                                  |
 |------------------|------------------------------------------------------------------------------|
 | **name**.css     | The generated CSS output                                                     |
-| **name**.css.map | The [source map][sm] that can be used to debug the Sass source in-browser    |
+| **name**.css.map | The [source map][] that can be used to debug the Sass source in-browser      |
 
-[sm][https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps]
+[source map]: https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps
 
 
 | Attribute       | Description                                                                   |
@@ -161,9 +161,9 @@ may have dependencies (`sass_library` rules, see below).
 | `include_paths` | Additional directories to search when resolving imports                       |
 | `output_dir`    | Output directory, relative to this package                                    |
 | `output_name`   | Output file name, including .css extension. Defaults to `<src_name>.css`      |
-| `output_style`  | [Output style][out-style] for the generated CSS.                              |
+| `output_style`  | [Output style][] for the generated CSS.                                       |
 
-[out-style][http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style]
+[Output style]: http://sass-lang.com/documentation/file.SASS_REFERENCE.html#output_style
 
 ### sass_library
 
