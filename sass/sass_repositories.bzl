@@ -72,8 +72,8 @@ def sass_repositories():
 
   yarn_install(
       name = "build_bazel_rules_sass_compiletime_deps",
-      package_json = "//sass:package.json",
-      yarn_lock = "//sass:yarn.lock",
+      package_json = "@io_bazel_rules_sass//sass:package.json",
+      yarn_lock = "@io_bazel_rules_sass//sass:yarn.lock",
   )
 
   native.new_http_archive(
