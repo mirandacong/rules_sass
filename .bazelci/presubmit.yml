@@ -22,6 +22,6 @@ platforms:
     - "//..."
     # Cannot build the docsite on Windows, see
     # https://github.com/bazelbuild/skydoc/issues/58
-    - "-//sass:docs"
+    - "-//sass/docs"
     test_targets:
     - "//..."
