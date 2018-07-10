@@ -1,4 +1,5 @@
 workspace(name = "io_bazel_rules_sass")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # To use the JavaScript version of Sass, we need to first install nodejs
 http_archive(
