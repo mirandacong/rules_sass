@@ -825,9 +825,9 @@ safe-regex@^1.1.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-sass@1.9.0:
-  version "1.9.0"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.9.0.tgz#6199d8e91a08cadc9d5bcf4f223aa8ccdca257da"
+sass@1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.10.0.tgz#0a2d52b2d74696802169f83598344caefd1c6e7d"
   dependencies:
     chokidar "^2.0.0"
 
