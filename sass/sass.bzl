@@ -114,12 +114,13 @@ def _sass_binary_impl(ctx):
     _run_sass(ctx, ctx.file.src, ctx.outputs.css_file, map_file)
     return DefaultInfo(runfiles = ctx.runfiles(files = outputs))
 
-def _sass_binary_outputs(output_name, output_dir, sourcemap):
+def _sass_binary_outputs(src, output_name, output_dir, sourcemap):
     """Get map of sass_binary outputs, including generated css and sourcemaps.
 
     Note that the arguments to this function are named after attributes on the rule.
 
     Args:
+      src: The rule's `src` attribute
       output_name: The rule's `output_name` attribute
       output_dir: The rule's `output_dir` attribute
       sourcemap: The rule's `sourcemap` attribute
@@ -128,7 +129,7 @@ def _sass_binary_outputs(output_name, output_dir, sourcemap):
       Outputs for the sass_binary
     """
 
-    output_name = output_name or "%{src}.css"
+    output_name = output_name or _strip_extension(src) + ".css"
     css_file = "/".join([p for p in [output_dir, output_name] if p])
 
     outputs = {
@@ -139,6 +140,12 @@ def _sass_binary_outputs(output_name, output_dir, sourcemap):
         outputs["map_file"] = "%s.map" % css_file
 
     return outputs
+
+def _strip_extension(path)
+    """Removes the final extension from a path."""
+    components = path.split(".")
+    components.pop()
+    return ".".join(components)
 
 sass_deps_attr = attr.label_list(
     doc = "sass_library targets to include in the compilation",
