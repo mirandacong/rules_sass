@@ -141,7 +141,7 @@ def _sass_binary_outputs(src, output_name, output_dir, sourcemap):
 
     return outputs
 
-def _strip_extension(path)
+def _strip_extension(path):
     """Removes the final extension from a path."""
     components = path.split(".")
     components.pop()
