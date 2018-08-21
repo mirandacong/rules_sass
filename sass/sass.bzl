@@ -129,7 +129,7 @@ def _sass_binary_outputs(src, output_name, output_dir, sourcemap):
       Outputs for the sass_binary
     """
 
-    output_name = output_name or _strip_extension(src) + ".css"
+    output_name = output_name or _strip_extension(src.name) + ".css"
     css_file = "/".join([p for p in [output_dir, output_name] if p])
 
     outputs = {
