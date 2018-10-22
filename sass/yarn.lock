@@ -959,10 +959,10 @@ safe-regex@^1.1.0:
   resolved "http://yarn.corp.logiocean.com:4873/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
-sass@1.13.0:
-  version "1.13.0"
-  resolved "http://yarn.corp.logiocean.com:4873/sass/-/sass-1.13.0.tgz#1b2dbd3e6d45a9d0fcf36203c2f1791bd3f4e876"
-  integrity sha1-Gy29Pm1FqdD882IDwvF5G9P06HY=
+sass@1.13.4:
+  version "1.13.4"
+  resolved "http://yarn.corp.logiocean.com:4873/sass/-/sass-1.13.4.tgz#c6d8e08623b6f11ac1fc55c7581c395c9d5c65a8"
+  integrity sha1-xtjghiO28RrB/FXHWBw5XJ1cZag=
   dependencies:
     chokidar "^2.0.0"
 
