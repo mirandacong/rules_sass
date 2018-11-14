@@ -155,7 +155,7 @@ chokidar@^2.0.0:
   optionalDependencies:
     fsevents "^1.2.2"
 
-chownr@^1.0.1:
+chownr@^1.1.1:
   version "1.1.1"
   resolved "http://yarn.corp.logiocean.com:4873/chownr/-/chownr-1.1.1.tgz#54726b8b8fff4df053c42187e801fb4412df1494"
   integrity sha1-VHJri4//TfBTxCGH6AH7RBLfFJQ=
@@ -381,9 +381,9 @@ glob@^7.0.5:
     path-is-absolute "^1.0.0"
 
 graceful-fs@^4.1.11:
-  version "4.1.11"
-  resolved "http://yarn.corp.logiocean.com:4873/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
-  integrity sha1-Dovf5NHduIVNZOBOp8AOKgJuVlg=
+  version "4.1.15"
+  resolved "http://yarn.corp.logiocean.com:4873/graceful-fs/-/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
+  integrity sha1-/7cD4QZuig7qpMi4C6klPu77+wA=
 
 has-unicode@^2.0.0:
   version "2.0.1"
@@ -667,15 +667,15 @@ minimist@^1.2.0:
   resolved "http://yarn.corp.logiocean.com:4873/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
 
-minipass@^2.2.1, minipass@^2.3.3:
-  version "2.3.4"
-  resolved "http://yarn.corp.logiocean.com:4873/minipass/-/minipass-2.3.4.tgz#4768d7605ed6194d6d576169b9e12ef71e9d9957"
-  integrity sha1-R2jXYF7WGU1tV2FpueEu9x6dmVc=
+minipass@^2.2.1, minipass@^2.3.4:
+  version "2.3.5"
+  resolved "http://yarn.corp.logiocean.com:4873/minipass/-/minipass-2.3.5.tgz#cacebe492022497f656b0f0f51e2682a9ed2d848"
+  integrity sha1-ys6+SSAiSX9law8PUeJoKp7S2Eg=
   dependencies:
     safe-buffer "^5.1.2"
     yallist "^3.0.0"
 
-minizlib@^1.1.0:
+minizlib@^1.1.1:
   version "1.1.1"
   resolved "http://yarn.corp.logiocean.com:4873/minizlib/-/minizlib-1.1.1.tgz#6734acc045a46e61d596a43bb9d9cd326e19cc42"
   integrity sha1-ZzSswEWkbmHVlqQ7udnNMm4ZzEI=
@@ -959,10 +959,10 @@ safe-regex@^1.1.0:
   resolved "http://yarn.corp.logiocean.com:4873/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha1-RPoWGwGHuVSd2Eu5GAL5vYOFzWo=
 
-sass@1.13.0:
-  version "1.13.0"
-  resolved "http://yarn.corp.logiocean.com:4873/sass/-/sass-1.13.0.tgz#1b2dbd3e6d45a9d0fcf36203c2f1791bd3f4e876"
-  integrity sha1-Gy29Pm1FqdD882IDwvF5G9P06HY=
+sass@1.14.3:
+  version "1.14.3"
+  resolved "http://yarn.corp.logiocean.com:4873/sass/-/sass-1.14.3.tgz#b8e73fee303ab97aa4ca84b8251862257e610095"
+  integrity sha1-uOc/7jA6uXqkyoS4JRhiJX5hAJU=
   dependencies:
     chokidar "^2.0.0"
 
@@ -1116,14 +1116,14 @@ strip-json-comments@~2.0.1:
   integrity sha1-PFMZQukIwml8DsNEhYwobHygpgo=
 
 tar@^4:
-  version "4.4.6"
-  resolved "http://yarn.corp.logiocean.com:4873/tar/-/tar-4.4.6.tgz#63110f09c00b4e60ac8bcfe1bf3c8660235fbc9b"
-  integrity sha1-YxEPCcALTmCsi8/hvzyGYCNfvJs=
+  version "4.4.8"
+  resolved "http://yarn.corp.logiocean.com:4873/tar/-/tar-4.4.8.tgz#b19eec3fde2a96e64666df9fdb40c5ca1bc3747d"
+  integrity sha1-sZ7sP94qluZGZt+f20DFyhvDdH0=
   dependencies:
-    chownr "^1.0.1"
+    chownr "^1.1.1"
     fs-minipass "^1.2.5"
-    minipass "^2.3.3"
-    minizlib "^1.1.0"
+    minipass "^2.3.4"
+    minizlib "^1.1.1"
     mkdirp "^0.5.0"
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
